@@ -133,15 +133,18 @@ func shake_camera(power: float, duration: int) -> void:
 
 
 func _on_MeteorTimer_timeout() -> void:
-	current_meteor += 1
-	if current_meteor >= meteor_array.size():
-		current_meteor = 0
+	var spawn_count = randi() % 2 + 1
 	
-	$Path2D/PathFollow2D.offset = randi()
-	
-	meteor_array[current_meteor].set_meteor($Path2D/PathFollow2D.position, rand_range(0,360), rand_range(50,100))
-	
-	print("Spawning meteor at: " + String($Path2D/PathFollow2D.position))
+	for _x in range(spawn_count):
+		current_meteor += 1
+		if current_meteor >= meteor_array.size():
+			current_meteor = 0
+		
+		$Path2D/PathFollow2D.offset = randi()
+		
+		meteor_array[current_meteor].set_meteor($Path2D/PathFollow2D.position, rand_range(0,360), rand_range(50,100))
+		
+		print("Spawning meteor at: " + String($Path2D/PathFollow2D.position))
 
 
 func _on_Player_player_hit() -> void:

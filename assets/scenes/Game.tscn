@@ -138,7 +138,7 @@ tracks/4/keys = {
 
 [sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -29.5134, -33.4539, 0, 0, 0, 0, 821.474, -35.1357, 0, 0, 0, 0, 828.201, 622.445, 0, 0, 0, 0, -24.4681, 617.4, 0, 0, 0, 0, -29.5134, -33.4539 )
+"points": PoolVector2Array( 0, 0, 0, 0, -98.4929, -125.372, 0, 0, 0, 0, 921.247, -126.863, 0, 0, 0, 0, 935.501, 701.673, 0, 0, 0, 0, -99.7232, 703.454, 0, 0, 0, 0, -98.4929, -125.372 )
 }
 
 [node name="Game" type="Node"]
@@ -378,13 +378,14 @@ wait_time = 30.0
 [node name="OxygenTimer" type="Timer" parent="."]
 
 [node name="MeteorTimer" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 9 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( -29.5134, -33.4539 )
-rotation = -0.00197503
+position = Vector2( -98.4929, -125.372 )
+rotation = -0.00145545
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )

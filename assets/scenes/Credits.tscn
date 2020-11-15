@@ -2,12 +2,14 @@
 
 [ext_resource path="res://assets/scenes/Credits.gd" type="Script" id=1]
 [ext_resource path="res://assets/textures/space_background.png" type="Texture" id=2]
-[ext_resource path="res://assets/fonts/Kenney High.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/scenes/screen_fade/ScreenFade.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/audio/music/opening_bgm.ogg" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 52
+outline_size = 1
+outline_color = Color( 1, 0.631373, 0, 1 )
 font_data = ExtResource( 3 )
 
 [node name="Credits" type="Node"]
@@ -22,6 +24,14 @@ motion_mirroring = Vector2( 800, 600 )
 position = Vector2( 400, 300 )
 texture = ExtResource( 2 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 0.631373, 0, 0.0666667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CreditsText" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,6 +42,9 @@ margin_top = -269.0
 margin_right = 373.0
 margin_bottom = 268.0
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
 align = 1
 valign = 1
 autowrap = true
