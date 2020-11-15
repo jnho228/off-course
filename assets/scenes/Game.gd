@@ -1,6 +1,8 @@
 extends Node
 
 
+export var location_marker_object: PackedScene
+
 signal enter_pressed
 
 var is_playing: bool = false
@@ -21,7 +23,6 @@ func _ready() -> void:
 	var new_position: Vector2 = Vector2((randi() % 10000 + 10000) * (1 if left_or_right == 0 else -1),
 										(randi() % 10000 + 10000) * (1 if up_or_down == 0 else -1))
 	$SpaceStation.position = new_position
-	print("New Position: " + String(new_position))
 	
 	opening()
 
@@ -40,6 +41,7 @@ func opening() -> void:
 	$LocationMarkerTimer.start()
 	
 	# show an initial marker
+	show_location_marker()
 	
 	is_playing = true
 
@@ -88,5 +90,19 @@ func _on_OxygenTimer_timeout() -> void:
 
 
 func _on_LocationMarkerTimer_timeout() -> void:
-	# show a marker on the edge of the screen for where we should be going
-	pass # Replace with function body.
+	show_location_marker()
+
+
+func show_location_marker() -> void:
+	var new_marker = location_marker_object.instance()
+	add_child(new_marker)
+	
+	#new_marker.position = $Player.position + Vector2(10, 10)
+	# x = cx+r*cos(a)
+	# y = cy+r*sin(a) the a needs to be the angle between c (center "player") and the station and in radians!!
+	
+	var angle_to_station: float = $Player.get_angle_to($SpaceStation.position) # idk if this works lmao
+	var spawn_point: Vector2 = Vector2(	$Player.position.x + 300 * cos(angle_to_station),
+										$Player.position.y + 300 * sin(angle_to_station))
+	
+	new_marker.position = spawn_point

@@ -34,7 +34,6 @@ func _process(delta: float) -> void:
 	$ParallaxBackground/ParallaxLayer.motion_offset.x -= delta * 50
 	
 	$spaceStation_020.position.y += sin(OS.get_ticks_msec() * .001) * 10 * delta
-	$spaceStation_028.position.y += sin(OS.get_ticks_msec() * .001) * 10 * delta
 
 
 func opening() -> void:
