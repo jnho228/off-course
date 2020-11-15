@@ -34,5 +34,6 @@ func _process(_delta: float) -> void:
 
 func _on_Player_area_entered(area: Area2D) -> void:
 	if area.get_collision_layer_bit(1):
+		$AudioStreamPlayer2D.play()
 		print("I have hit a meteor!")
 		emit_signal("player_hit")

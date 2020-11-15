@@ -155,10 +155,13 @@ func _on_Player_player_hit() -> void:
 
 
 func _on_ReturnToTitleButton_pressed() -> void:
+	$AudioStreamPlayer.play()
 	$CanvasLayer/ScreenFade.load_scene("res://assets/scenes/Title.tscn")
 
 
 func trigger_gameover() -> void:
+	$CanvasLayer/GameOver/AudioStreamPlayer.play()
+	
 	is_playing = false
 	$CanvasLayer/GameOver/AnimationPlayer.play("show")
 	$OxygenTimer.stop()
@@ -171,11 +174,14 @@ func trigger_gameover() -> void:
 
 func _on_CreditsButton_pressed() -> void:
 	# move to the credits screen
+	$AudioStreamPlayer.play()
 	pass # Replace with function body.
 
 
 func _on_SpaceStation_area_entered(area: Area2D) -> void:
 	if area.get_collision_layer_bit(0):
+		$CanvasLayer/GameWin/AudioStreamPlayer.play()
+		
 		$OxygenTimer.stop()
 		$MeteorTimer.stop()
 		$LocationMarkerTimer.stop()

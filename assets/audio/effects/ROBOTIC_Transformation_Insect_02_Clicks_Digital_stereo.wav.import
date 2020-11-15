@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ROBOTIC_Transformation_Insect_02_Clicks_Digital_stereo.wav-1548784f561338089abc03c8b47fb5f0.sample"
+
+[deps]
+
+source_file="res://assets/audio/effects/ROBOTIC_Transformation_Insect_02_Clicks_Digital_stereo.wav"
+dest_files=[ "res://.import/ROBOTIC_Transformation_Insect_02_Clicks_Digital_stereo.wav-1548784f561338089abc03c8b47fb5f0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

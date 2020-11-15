@@ -42,3 +42,6 @@ anchor_mode = 0
 current = true
 
 [node name="Meteor" parent="." instance=ExtResource( 7 )]
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+autoplay = true
