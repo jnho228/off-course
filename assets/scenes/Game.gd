@@ -166,3 +166,23 @@ func trigger_gameover() -> void:
 	$LocationMarkerTimer.stop()
 	for x in meteor_array:
 		x.position = Vector2(-1000, -1000)
+	$Player.position = Vector2(1000, 1000)
+
+
+func _on_CreditsButton_pressed() -> void:
+	# move to the credits screen
+	pass # Replace with function body.
+
+
+func _on_SpaceStation_area_entered(area: Area2D) -> void:
+	if area.get_collision_layer_bit(0):
+		$OxygenTimer.stop()
+		$MeteorTimer.stop()
+		$LocationMarkerTimer.stop()
+		for x in meteor_array:
+			x.position = Vector2(-1000, -1000)
+		$Player.position = Vector2(1000, 1000)
+		
+		player_velocity = Vector2.ZERO
+		
+		$CanvasLayer/GameWin/AnimationPlayer.play("show")

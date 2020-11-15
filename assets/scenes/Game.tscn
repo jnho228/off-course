@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/scenes/screen_fade/ScreenFade.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/uipack_space/barHorizontal_green_mid.png" type="Texture" id=2]
@@ -15,24 +15,24 @@
 [ext_resource path="res://assets/scenes/Meteor.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=14]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 52.732
 height = 297.361
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 use_filter = true
 font_data = ExtResource( 9 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 72
 font_data = ExtResource( 14 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 font_data = ExtResource( 14 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "show"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -59,7 +59,79 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="DynamicFont" id=7]
+size = 64
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 52
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "show"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CreditsButton:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CreditsButton:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Curve2D" id=6]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -29.5134, -33.4539, 0, 0, 0, 0, 821.474, -35.1357, 0, 0, 0, 0, 828.201, 622.445, 0, 0, 0, 0, -24.4681, 617.4, 0, 0, 0, 0, -29.5134, -33.4539 )
 }
@@ -106,7 +178,7 @@ texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpaceStation"]
 position = Vector2( 0, 24 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -117,8 +189,8 @@ margin_left = 8.0
 margin_top = -34.0
 margin_right = 391.0
 margin_bottom = -8.0
-max_value = 10.0
-value = 10.0
+max_value = 150.0
+value = 140.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
 nine_patch_stretch = true
@@ -134,7 +206,7 @@ __meta__ = {
 margin_top = -29.0
 margin_right = 72.0
 margin_bottom = -1.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Oxygen"
 
@@ -167,7 +239,7 @@ anchor_right = 1.0
 margin_left = -48.0
 margin_top = -29.0
 margin_bottom = -1.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Fuel"
 align = 2
@@ -198,7 +270,7 @@ margin_left = -217.5
 margin_top = -130.5
 margin_right = 217.5
 margin_bottom = -49.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Game Over"
 align = 1
 valign = 1
@@ -215,7 +287,7 @@ margin_left = -149.5
 margin_top = 60.0
 margin_right = 149.5
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 disabled = true
 text = "Return to Title"
 __meta__ = {
@@ -223,7 +295,61 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameOver"]
-anims/show = SubResource( 6 )
+anims/show = SubResource( 5 )
+
+[node name="GameWin" type="ColorRect" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/GameWin"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0362
+margin_top = 21.3575
+margin_right = 768.036
+margin_bottom = 243.357
+custom_fonts/font = SubResource( 7 )
+text = "You've finally made it back to the ship."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/GameWin"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 32.0
+margin_top = 325.344
+margin_right = 768.0
+margin_bottom = 397.344
+custom_fonts/font = SubResource( 7 )
+text = "Good job!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/GameWin"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -135.0
+margin_top = -138.0
+margin_right = 135.0
+margin_bottom = -73.0
+custom_fonts/font = SubResource( 8 )
+disabled = true
+text = "Next"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameWin"]
+anims/show = SubResource( 9 )
 
 [node name="ScreenFade" parent="CanvasLayer" instance=ExtResource( 1 )]
 
@@ -235,13 +361,15 @@ wait_time = 30.0
 [node name="MeteorTimer" type="Timer" parent="."]
 
 [node name="Path2D" type="Path2D" parent="."]
-curve = SubResource( 3 )
+curve = SubResource( 6 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( -29.5134, -33.4539 )
-rotation = -0.00197697
+rotation = -0.00197503
 [connection signal="player_hit" from="Player" to="." method="_on_Player_player_hit"]
+[connection signal="area_entered" from="SpaceStation" to="." method="_on_SpaceStation_area_entered"]
 [connection signal="pressed" from="CanvasLayer/GameOver/ReturnToTitleButton" to="." method="_on_ReturnToTitleButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/GameWin/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="timeout" from="LocationMarkerTimer" to="." method="_on_LocationMarkerTimer_timeout"]
 [connection signal="timeout" from="OxygenTimer" to="." method="_on_OxygenTimer_timeout"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_MeteorTimer_timeout"]

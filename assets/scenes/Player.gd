@@ -35,5 +35,4 @@ func _process(_delta: float) -> void:
 func _on_Player_area_entered(area: Area2D) -> void:
 	if area.get_collision_layer_bit(1):
 		print("I have hit a meteor!")
-		var new_trajectory = rand_range(0,360)
 		emit_signal("player_hit")
