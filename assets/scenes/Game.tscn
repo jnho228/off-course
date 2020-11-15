@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/scenes/screen_fade/ScreenFade.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/uipack_space/barHorizontal_green_mid.png" type="Texture" id=2]
@@ -17,10 +17,12 @@
 [ext_resource path="res://assets/audio/effects/button click.wav" type="AudioStream" id=15]
 [ext_resource path="res://assets/audio/effects/ROBOTIC_Transformation_Insect_02_Clicks_Digital_stereo.wav" type="AudioStream" id=16]
 [ext_resource path="res://assets/audio/effects/CHARGE_Servo_24_Semi_Down_4000ms_stereo.wav" type="AudioStream" id=17]
+[ext_resource path="res://assets/audio/music/game bgm.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/audio/effects/359140__sunnyflower__low-metal-hit-2.wav" type="AudioStream" id=19]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 52.732
-height = 297.361
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 61.4335
+height = 271.299
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -63,7 +65,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="DynamicFont" id=6]
-size = 64
+size = 51
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -162,17 +164,18 @@ current = true
 position = Vector2( 400, 300 )
 
 [node name="SpaceStation" type="Area2D" parent="."]
-position = Vector2( 1061.36, 265.642 )
+position = Vector2( 1071.45, 262.278 )
 rotation = -0.249835
 scale = Vector2( 5, 5 )
 collision_layer = 4
 collision_mask = 3
+
+[node name="SpaceStation" type="Sprite" parent="SpaceStation"]
+position = Vector2( 0.186707, -0.731644 )
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="SpaceStation" type="Sprite" parent="SpaceStation"]
-texture = ExtResource( 10 )
 
 [node name="spaceStation_028" type="Sprite" parent="SpaceStation/SpaceStation"]
 position = Vector2( 0.703979, 189.419 )
@@ -180,8 +183,12 @@ rotation = -3.14159
 texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpaceStation"]
-position = Vector2( 0, 24 )
-shape = SubResource( 1 )
+position = Vector2( 1.26265, 22.507 )
+shape = SubResource( 10 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SpaceStation"]
+stream = ExtResource( 19 )
+volume_db = -1.691
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -315,22 +322,25 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="CanvasLayer/GameWin"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 32.0362
-margin_top = 21.3575
-margin_right = 768.036
-margin_bottom = 243.357
+margin_top = 21.0
+margin_right = 800.0
+margin_bottom = 318.0
 custom_fonts/font = SubResource( 6 )
-text = "You've finally made it back to the ship."
+text = "Finally, safe again.
+Now let's begin reparing those solar panels!"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label2" type="Label" parent="CanvasLayer/GameWin"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 32.0
-margin_top = 325.344
+margin_top = 347.344
 margin_right = 768.0
-margin_bottom = 397.344
+margin_bottom = 419.344
 custom_fonts/font = SubResource( 6 )
 text = "Good job!"
 align = 1
@@ -343,13 +353,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -135.0
+margin_left = -201.0
 margin_top = -138.0
-margin_right = 135.0
+margin_right = 201.0
 margin_bottom = -73.0
 custom_fonts/font = SubResource( 7 )
 disabled = true
-text = "Next"
+text = "Finished"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -377,6 +387,7 @@ position = Vector2( -29.5134, -33.4539 )
 rotation = -0.00197503
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
 autoplay = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

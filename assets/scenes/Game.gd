@@ -12,7 +12,7 @@ var player_velocity: Vector2 = Vector2(0,0) # make everything goes go opposite o
 var meteor_array = []
 var current_meteor: int = 0
 
-var opening_dialogue = ["Fuck",
+var opening_dialogue = ["...Crap.",
 						"I should be able to lock onto the station's signal...",
 						"...",
 						"There we.. go!"]
@@ -174,11 +174,15 @@ func trigger_gameover() -> void:
 
 func _on_CreditsButton_pressed() -> void:
 	# move to the credits screen
+	$CanvasLayer/ScreenFade.load_scene("res://assets/scenes/Credits.tscn")
 	$AudioStreamPlayer.play()
 	pass # Replace with function body.
 
 
 func _on_SpaceStation_area_entered(area: Area2D) -> void:
+	if area.get_collision_layer_bit(1):
+		$SpaceStation/AudioStreamPlayer2D.play()
+	
 	if area.get_collision_layer_bit(0):
 		$CanvasLayer/GameWin/AudioStreamPlayer.play()
 		
