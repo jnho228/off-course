@@ -2,11 +2,11 @@ extends Node
 
 
 var credits_text = ["Off Course",
-					"by jnho228",
-					"Entry for 'Mini Jam 67: Void'",
+					"by Nick H.",
+					"'Mini Jam 67: Void' Entry",
 					"",
-					"Programming: jnho228",
-					"Music: jnho228",
+					"Programming: Nick H.",
+					"Music: Nick H.",
 					"Art and Font: Kenney :)",
 					"Thanks for playing!"]
 

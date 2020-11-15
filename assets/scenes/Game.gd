@@ -43,7 +43,7 @@ func opening() -> void:
 	$CanvasLayer/DialoguePanel.toggle_panel()
 	
 	for x in range(0, opening_dialogue.size()):
-		if x == 2: shake_camera(3, 5)
+		if x == 2: shake_camera(10, 5)
 		
 		$CanvasLayer/DialoguePanel.set_text(opening_dialogue[x])
 		yield(self, "enter_pressed")

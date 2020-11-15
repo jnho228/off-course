@@ -16,11 +16,11 @@ var opening_dialogue = [ 	"Log Date: 6-32-67",
 							"And the power has flickered... great.",
 							"Guess I'm going to check the solar panels.", # Change the view or something idk
 							"...",
-							"Oh, I hate these space-walking missions.",
+							"I hate these space-walking missions.",
 							"It's like going in the deep end of the pool.",
 							"But instead of a bottom, it's just infinity.",
 							"...",
-							"Oh dear, this looks worse than I imagined.",
+							"Ugh, this looks worse than I imagined.",
 							"It appears a few small asteroids have damaged the few solar cells we have left.",
 							"...", # Shake the screen and show player flying off, spinning
 							"AHHHH!! SOMEONE......."]
@@ -63,6 +63,12 @@ func opening() -> void:
 			$Camera2D/AnimationPlayer.play("zoom")
 			$Player.show()
 			$Player/CollisionShape2D.disabled = false
+		
+		if x == 9:
+			$SpaceStation/AnimationPlayer.play("flicker")
+		
+		if x == 14:
+			$SpaceStation/AnimationPlayer.play("flicker")
 			
 		if x == 15: 
 			for _y in range(1):

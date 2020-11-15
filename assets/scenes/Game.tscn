@@ -1,9 +1,9 @@
 [gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/scenes/screen_fade/ScreenFade.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/uipack_space/barHorizontal_green_mid.png" type="Texture" id=2]
-[ext_resource path="res://assets/textures/uipack_space/barHorizontal_red_mid.png" type="Texture" id=3]
-[ext_resource path="res://assets/textures/uipack_space/barHorizontal_blue_mid.png" type="Texture" id=4]
+[ext_resource path="res://assets/textures/uipack_space/squareRed.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/uipack_space/squareBlue.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/uipack_space/squareGreen.png" type="Texture" id=4]
 [ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/textures/space_background.png" type="Texture" id=6]
 [ext_resource path="res://assets/scenes/Game.gd" type="Script" id=7]
@@ -26,11 +26,15 @@ height = 271.299
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
-use_filter = true
+outline_size = 1
+outline_color = Color( 1, 0.631373, 0, 0.521569 )
+extra_spacing_char = 2
 font_data = ExtResource( 9 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 72
+outline_size = 2
+outline_color = Color( 1, 0.631373, 0, 1 )
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -66,10 +70,12 @@ tracks/1/keys = {
 
 [sub_resource type="DynamicFont" id=6]
 size = 51
+outline_size = 1
+outline_color = Color( 1, 0.631373, 0, 1 )
 font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 52
+size = 37
 font_data = ExtResource( 14 )
 
 [sub_resource type="Animation" id=8]
@@ -199,10 +205,10 @@ margin_left = 8.0
 margin_top = -34.0
 margin_right = 391.0
 margin_bottom = -8.0
-max_value = 150.0
-value = 140.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 2 )
+max_value = 200.0
+value = 190.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 4 )
 nine_patch_stretch = true
 stretch_margin_left = 10
 stretch_margin_top = 10
@@ -213,12 +219,18 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/OxygenBar"]
+margin_left = 5.0
 margin_top = -29.0
-margin_right = 72.0
+margin_right = 87.0
 margin_bottom = -1.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "Oxygen"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FuelBar" type="TextureProgress" parent="CanvasLayer"]
 anchor_left = 1.0
@@ -231,8 +243,8 @@ margin_right = -8.0
 margin_bottom = -8.0
 max_value = 5000.0
 value = 5000.0
-texture_under = ExtResource( 3 )
-texture_progress = ExtResource( 4 )
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
 fill_mode = 1
 nine_patch_stretch = true
 stretch_margin_left = 10
@@ -246,11 +258,14 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/FuelBar"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -48.0
+margin_left = -61.0
 margin_top = -29.0
+margin_right = -7.0
 margin_bottom = -1.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 text = "Fuel"
 align = 2
 __meta__ = {
@@ -281,6 +296,9 @@ margin_top = -130.5
 margin_right = 217.5
 margin_bottom = -49.5
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
 text = "Game Over"
 align = 1
 valign = 1
@@ -293,9 +311,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -149.5
+margin_left = -172.0
 margin_top = 60.0
-margin_right = 149.5
+margin_right = 172.0
 margin_bottom = 102.0
 custom_fonts/font = SubResource( 4 )
 disabled = true
@@ -312,8 +330,14 @@ stream = ExtResource( 17 )
 
 [node name="GameWin" type="ColorRect" parent="CanvasLayer"]
 self_modulate = Color( 1, 1, 1, 0 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -300.0
+margin_right = 400.0
+margin_bottom = 300.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0.588235 )
 __meta__ = {
@@ -326,6 +350,9 @@ margin_top = 21.0
 margin_right = 800.0
 margin_bottom = 318.0
 custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
 text = "Finally, safe again.
 Now let's begin reparing those solar panels!"
 align = 1
@@ -342,10 +369,16 @@ margin_top = 347.344
 margin_right = 768.0
 margin_bottom = 419.344
 custom_fonts/font = SubResource( 6 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 4
+custom_constants/shadow_offset_y = 4
 text = "Good job!"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CreditsButton" type="Button" parent="CanvasLayer/GameWin"]
 modulate = Color( 1, 1, 1, 0 )
@@ -353,10 +386,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -201.0
+margin_left = -126.0
 margin_top = -138.0
-margin_right = 201.0
-margin_bottom = -73.0
+margin_right = 126.0
+margin_bottom = -89.0
 custom_fonts/font = SubResource( 7 )
 disabled = true
 text = "Finished"

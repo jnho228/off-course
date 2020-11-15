@@ -127,7 +127,7 @@ margin_top = -32.0
 margin_right = 245.0
 margin_bottom = -5.0
 custom_fonts/font = SubResource( 3 )
-text = "(c) 2020 jnho228"
+text = "(c) 2020 Nick H. (jnho228)"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
