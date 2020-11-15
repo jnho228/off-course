@@ -28,6 +28,12 @@ mouse_cursor/custom_image="res://assets/textures/uipack_space/cursor_pointer3D_s
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="meteor"
+2d_physics/layer_3="station"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

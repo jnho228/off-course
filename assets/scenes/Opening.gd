@@ -42,6 +42,9 @@ func opening() -> void:
 	$DialoguePanel.toggle_panel()
 	
 	for x in range(0, opening_dialogue.size()):
+		if x == 4: shake_camera(10, 5)
+		if x == 15: shake_camera(40, 10)
+		
 		$DialoguePanel.set_text(opening_dialogue[x])
 		yield(self, "enter_pressed")
 	
@@ -49,3 +52,10 @@ func opening() -> void:
 	yield(get_tree().create_timer(1), "timeout")
 	
 	$ScreenFade.load_scene("res://assets/scenes/Game.tscn")
+
+
+func shake_camera(power: float, duration: int) -> void:
+	for _x in range(duration):
+		$Camera2D.offset = Vector2(rand_range(-power,power), rand_range(-power,power))
+		yield(get_tree(), "idle_frame")
+	$Camera2D.offset = Vector2(0,0)
