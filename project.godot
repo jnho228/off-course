@@ -18,6 +18,7 @@ _global_script_class_icons={
 config/name="Off Course - Mini Jam 67"
 run/main_scene="res://assets/scenes/Title.tscn"
 config/icon="res://assets/textures/space_shooter/Astronauts/spaceAstronauts_008.png"
+config/windows_native_icon="res://icon.ico"
 
 [display]
 
