@@ -14,7 +14,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.99936, 171.164 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "flicker"
 length = 0.4
 tracks/0/type = "value"
@@ -57,7 +57,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 350, 100 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 20.464, 27.2422 )
 
 [node name="Opening" type="Node"]
@@ -85,7 +85,7 @@ texture = ExtResource( 5 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpaceStation"]
-anims/flicker = SubResource( 4 )
+anims/flicker = SubResource( 2 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -134,7 +134,7 @@ __meta__ = {
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="EffectPlayer" type="AudioStreamPlayer" parent="."]

@@ -133,7 +133,7 @@ func shake_camera(power: float, duration: int) -> void:
 
 
 func _on_MeteorTimer_timeout() -> void:
-	var spawn_count = randi() % 2 + 1
+	var spawn_count = randi() % 4 + 1
 	
 	for _x in range(spawn_count):
 		current_meteor += 1
